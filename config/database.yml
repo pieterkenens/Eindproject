@@ -11,8 +11,8 @@ development:
   reconnect: false
   database: cms_app_development
   pool: 5
-  username: root
-  password:
+  username: cms_app
+  password: autobus
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
