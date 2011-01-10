@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Naam:</b>
+  <%= @labo.naam %>
+</p>
+
+<p>
+  <b>Lokaal:</b>
+  <%= @labo.lokaal %>
+</p>
+
+
+<%= link_to 'Edit', edit_labo_path(@labo) %> |
+<%= link_to 'Back', labos_path %>

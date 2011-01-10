@@ -1,0 +1,33 @@
+<h1 align="center">Labo en Lokaal</h1>
+
+<table border="1px" align="center">
+  <tr>
+    <th>Naam</th>
+    <th>Lokaal</th>
+    <th>Selecteren</th>
+    <th>Informatie</th>
+    <th>Updaten</th>
+    <th>Verwijderen</th>
+  </tr>
+
+<% @labos.each do |labo| %>
+  <tr>
+    <td><%= labo.naam %></td>
+    <td><%= labo.lokaal %></td>
+    <td><%= check_box_tag(:visible) %></td>
+    <td><%= link_to 'Bekijken', labo %></td>
+    <td><%= link_to 'Aanpassen', edit_labo_path(labo) %></td>
+    <td><%= link_to 'Verwijderen', labo, :confirm => 'Ben je zeker?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+
+<%= link_to 'New Labo', new_labo_path %>
+<div align="right">
+<%= link_to 'Verder', aanwezigs_path %>
+</div>
+<br />
+
+  

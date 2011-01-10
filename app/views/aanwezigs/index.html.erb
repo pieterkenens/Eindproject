@@ -1,0 +1,73 @@
+<html>
+<head></head>
+<style type="text/css">
+body{
+	text-align:center;	
+}
+table
+{
+border-collapse:separate;
+}
+a:link
+{
+	color:white;
+	background-color:gray;
+}
+a:visited
+{
+	color:white;
+	background-color:gray;
+}
+a:hover
+{
+	background-color:white;
+	color:gray;
+	font-weight:bold;
+}
+</style>
+<body>
+<h1>aanwezigheden</h1>
+<div align="center">
+<table border="1px">
+  <tr style="color:white; background-color:gray;">
+    <th>Vak</th>
+    <th>Docent</th>
+    <th>Studentnumber</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Klas</th>
+    <th>Datum</th>
+    <th>Info</th>
+    <th>Aanpassen</th>
+    <th>Verwijderen</th>
+  </tr>
+
+<% @aanwezigs.each do |aanwezig| %>
+  <tr>
+    <td><%= aanwezig.vak %></td>
+    <td><%= aanwezig.docent %></td>
+    <td><%= aanwezig.studentnumber %></td>
+    <td><%= aanwezig.first_name %></td>
+    <td><%= aanwezig.last_name %></td>
+    <td><%= aanwezig.klas %></td>
+    <td><%= aanwezig.datum %></td>
+    <td style="color:white; background-color:gray;"><%= link_to 'Info', aanwezig %></td>
+    <td bgcolor="gray"><%= link_to 'Aanpassen', edit_aanwezig_path(aanwezig) %></td>
+    <td bgcolor="gray"><%= link_to 'Verwijderen', aanwezig, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<div align="center">
+<%= link_to 'Aanwezigheden opnemen', new_aanwezig_path %>
+</div>
+</br>
+<div align="center">
+<%= link_to 'Student toevoegen', new_student_path %>
+<%= link_to 'Docent toevoegen', new_docent_path %>
+<%= link_to 'Vak toevoegen', new_labo_path %>
+</div>
+</body>
+</html>

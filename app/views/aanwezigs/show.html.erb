@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vak:</b>
+  <%= @aanwezig.vak %>
+</p>
+
+<p>
+  <b>Docent:</b>
+  <%= @aanwezig.docent %>
+</p>
+
+<p>
+  <b>Studentnumber:</b>
+  <%= @aanwezig.studentnumber %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @aanwezig.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @aanwezig.last_name %>
+</p>
+
+<p>
+  <b>Klas:</b>
+  <%= @aanwezig.klas %>
+</p>
+
+<p>
+  <b>Datum:</b>
+  <%= @aanwezig.datum %>
+</p>
+
+
+<%= link_to 'Edit', edit_aanwezig_path(@aanwezig) %> |
+<%= link_to 'Back', aanwezigs_path %>

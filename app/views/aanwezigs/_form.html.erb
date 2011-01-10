@@ -1,0 +1,109 @@
+<%= simple_form_for(@aanwezig) do |f| %>
+<html>
+<head>
+<style type="text/css">
+.simple_form label
+{
+	float: left;
+	width: 150px;
+	text-align: left;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+.simple_form div.input
+{
+	margin-bottom: 15px;
+}
+
+.simple_form div.input[type='submit'], .simple_form div.boolean
+{
+	margin-left: 120px;
+}
+
+
+.simple_form div.boolean
+{
+	float: none;
+	margin: 0;
+}
+ #Aanmelden
+{
+     margin-left:100px;
+     border:1px solid white;
+     width:250px;
+ }
+#OKAangemeld
+{
+     visibility:hidden;
+	border:1px solid white;
+	width:700px;
+	margin-left:100px;
+	margin-right:100px;
+	padding-left:10px;
+	padding-top:20px;
+	margin-top:-50px;
+}
+
+</style>
+</head>
+<body>
+ <script language="JavaScript" type="text/javascript">
+        function aanmelden() 
+        {
+            var username = document.getElementById('txtUsername');
+            var password = document.getElementById('txtPassword');
+            if (username.value != "admin") {
+                alert("Je moet een correcte username ingeven.")
+            }
+            else {
+                if (password.value != "admin") {
+                    alert("Je moet een correct password ingeven.")
+                }
+                else {
+                    document.getElementById('OKAangemeld').style.visibility = 'visible';
+                    document.getElementById('Aanmelden').style.visibility = 'hidden';
+                }
+            }
+        }
+
+    </script>
+
+    <div id="Aanmelden">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" id="txtUsername" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" id="txtPassword" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input id="btnAanmelden" type="button" onclick='aanmelden();' value='Aanmelden' />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+<div id="OKAangemeld">
+	<h2>	Selecteer de gegevens	</h2>
+	<h3>Vak</h3>
+	<%= f.collection_select :vak, Labo.all, :naam, :naam %>
+    	<h3>Docent</h3>
+	<%= f.collection_select :docent, Docent.all, :last_name, :last_name %>
+    	<h3>Studentnummer</h3>
+	<%= f.collection_select :studentnumber, Student.all, :studentnumber, :studentnumber %>
+    	<h3>Student Voornaam</h3>
+	<%= f.collection_select :first_name, Student.all, :first_name, :last_name %>
+    	<h3>Student Familienaam</h3>
+	<%= f.collection_select :last_name, Student.all, :last_name, :first_name %>
+    	<h3>Klas</h3>
+	<%= f.collection_select :klas, Student.all, :klas, :klas %> <br /><br />  
+    <%= f.input :datum %>
+    <%= f.button :submit %>
+</div>
+</body>
+</html>
+<% end %>

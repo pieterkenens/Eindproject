@@ -1,0 +1,31 @@
+<div align="center">
+<h1>Listing docents</h1>
+
+<table border="1px">
+  <tr>
+    <th>Docentnumber</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @docents.each do |docent| %>
+  <tr>
+    <td><%= docent.docentnumber %></td>
+    <td><%= docent.first_name %></td>
+    <td><%= docent.last_name %></td>
+    <td><%= link_to 'Show', docent %></td>
+    <td><%= link_to 'Edit', edit_docent_path(docent) %></td>
+    <td><%= link_to 'Destroy', docent, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New Docent', new_docent_path %>
+<div align="right">
+<%= link_to 'Verder', aanwezigs_path %>
+</div>

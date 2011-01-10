@@ -1,0 +1,41 @@
+<%= simple_form_for(@student) do |f| %>
+<html>
+<head>
+<style type="text/css">
+.simple_form label
+{
+	float: left;
+	width: 150px;
+	text-align: left;
+	margin: 4px 20px;
+	font-size: 13pt;
+	color:blue;
+}
+
+.simple_form div.input
+{
+	margin-bottom: 15px;
+}
+
+.simple_form div.input[type='submit'], .simple_form div.boolean
+{
+	margin-left: 220px;
+}
+
+.simple_form div.boolean
+{
+	float: none;
+	margin: 0;
+}
+
+</style>
+</head>
+
+<%= f.input :studentnumber, :hint =>"Vul het studentnummer in -- " %>
+<%= f.input :first_name, :hint =>"Vul de voornaam in -- " %>
+<%= f.input :last_name, :hint =>"Vul de familienaam in -- " %>
+<%= f.input :klas %>
+<%= f.button :submit %>
+</html>
+
+<% end %>

@@ -1,0 +1,34 @@
+<h1 align="center">Aanwezigheid van studenten</h1>
+
+<table align="center" border="1px" >
+  <tr>
+    <th>Studentnumber</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Klas</th>
+    <th>Aanwezig</th>
+    <th>Informatie</th>
+    <th>Update</th>
+    <th>Verwijderen</th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.studentnumber %></td>
+    <td><%= student.first_name %></td>
+    <td><%= student.last_name %></td>
+    <td><%= student.klas %></td>
+    <td><%= check_box_tag(:visible) %></td>
+    <td><%= link_to 'Informatie', student %></td>
+    <td><%= link_to 'Wijzigen', edit_student_path(student) %></td>
+    <td><%= link_to 'Verwijder', student, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>
+<br />
+<div align="right">
+<%= link_to 'Verder', aanwezigs_path %>
+</div>
